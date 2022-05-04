@@ -7,8 +7,8 @@ for里面写上要关联内容的标识
 添加事件时触发label时和label他关联的内容都触发，但触发内容事件时只触发自身
 
 ```html
-        <label for="demo">uesrname:</label>
-        <input type="text" id="demo">
+    <label for="demo">uesrname:</label>
+    <input type="text" id="demo">
 ```
 
 ## 属性和特性：

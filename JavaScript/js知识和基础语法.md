@@ -90,6 +90,23 @@ case里面的类型不要求一致
 
 continue :终止本次循环，开始下次的循环
 
+```js
+const a = 2;
+switch (a) {
+    case 1:
+        console.log(1);
+        break;
+    case 2:
+        console.log(2);
+        break;
+    case 3:
+        console.log(3);
+        break;
+    default:
+        console.log("default")
+}
+```
+
 数组里面的每个元素不用类型一样  
 length ：数组长度
 
@@ -148,20 +165,20 @@ alert() :网页弹出框
 1. 函数声明
 ```javaScript
 function 函数名（）{
-函数体
+	函数体
 }
 ```
 
 2. 命名函数表达式
 ```javaScript
- var 函数名 = function 函数名{
-函数体
+var 函数名 = function 函数名{
+	函数体
 }
 ```
 3. 匿名函数表达式（函数表达式）
 ```javaScript
- var 函数名 = function {
-函数体
+var 函数名 = function {
+	函数体
 }
 
 ```
@@ -177,14 +194,14 @@ function 函数名（）{
 可以通过 函数名.length  来求出形参的个数。
 
 ```javascript
-      function w(x, y) {
-            // document.write("a" + "<br>");
-            // document.write("xyq" + "<br>");
-            // document.write(x + y);
-            arguments[2] = 4;
-            console.log(arguments);
-        }
-        w(1, 2, 3);
+function w(x, y) {
+    // document.write("a" + "<br>");
+    // document.write("xyq" + "<br>");
+    // document.write(x + y);
+    arguments[2] = 4;
+    console.log(arguments);
+}
+w(1, 2, 3);
 ```
 
 return 函数返回值。
@@ -287,39 +304,39 @@ window就是全局
 3. 将实参值与形参统一  
 4. 在函数体里面找函数声明（函数表达式不行），值赋予函数体 
 ```javaScript
-        function fn(a) {
-            console.log(a);
-            var a = 123;
-            console.log(a);
-            function a() {}
-            console.log(a);
-            var b = function() {}
-            console.log(b);
-            function d() {}
-        }
-        fn(1);
-        输出：
-        ƒ a() {}
-        123
-        123
-        ƒ () {}
+function fn(a) {
+    console.log(a);
+    var a = 123;
+    console.log(a);
+    function a() {}
+    console.log(a);
+    var b = function() {}
+    console.log(b);
+    function d() {}
+}
+fn(1);
+输出：
+ƒ a() {}
+123
+123
+ƒ () {}
 
-        function test(a, b) {
-            console.log(a);
-            c = 0;
-            var c;
-            a = 3;
-            b = 2;
-            console.log(b);
-            function b() {}
-            function d() {}
-            console.log(b);
-        }
-        test(1);
-        答案
-        1
-        2
-        2
+function test(a, b) {
+    console.log(a);
+    c = 0;
+    var c;
+    a = 3;
+    b = 2;
+    console.log(b);
+    function b() {}
+    function d() {}
+    console.log(b);
+}
+test(1);
+答案
+1
+2
+2
 ```
 函数可以看成特殊的对象 
 
@@ -330,7 +347,6 @@ window就是全局
 #### 不可访问的（隐式属性）：
 - [[scope]] :存放作用域
 
-
 但凡内部的函数保存到外部，一定生成了闭包。  
 闭包会导致作用链不释放，造成内存泄漏。
 
@@ -340,21 +356,21 @@ window就是全局
 
 #### 普通的
 ```javaScript
-        (function() {
-    	函数体
-        }())
+(function() {
+	函数体
+}())
 ```
 #### 带参数的
 ```javaScript
-        (function(形参) {
-    	函数体
-        }(实参))
+(function(形参) {
+	函数体
+}(实参))
 ```
 #### 带返回值的
 ```javaScript
 var 变量名 = (function() {
-    		函数体
-        	}());
+	函数体
+}());
 ```
 
 只有表达式才能被执行符号执行。  
@@ -368,13 +384,13 @@ var 变量名 = (function() {
 函数不执行（只定义）就不会运行函数内部的语句，什么时候执行函数，函数再运行内部语句。
 
 ```javaScript
-        var num = 100;
-        function test() {
-            console.log(num);
-        }
-        num = 200;
-        test();
-        输出200
+var num = 100;
+function test() {
+    console.log(num);
+}
+num = 200;
+test();
+输出200
 ```
 ### ， 也可以作为运算符，返回后面的计算值。
 例：
@@ -384,24 +400,24 @@ var a = (1 -1 , 1 + 1);
 a 的值为2
 ```
 ```javaScript
-        var f = (
-            function f() {
-                return "1";
-            },
-            function g() {
-                return 2;
-            }
-        )();
-        console.log(typeof f);
-        输出值为 number
+var f = (
+    function f() {
+        return "1";
+    },
+    function g() {
+        return 2;
+    }
+)();
+console.log(typeof f);
+输出值为 number
 ```
 ```javaScript
-     var x = 1;
-     if (function f() {}) { //立即执行函数
-         x += typeof f;
-     }
-     console.log(x);
-    输出 ： 1undefined
+ var x = 1;
+ if (function f() {}) { //立即执行函数
+     x += typeof f;
+ }
+console.log(x);
+输出 ： 1undefined
 
 ```
 
@@ -413,7 +429,6 @@ a 的值为2
 ```javaScript
 var 对象名 = {
     属性名 ： 属性值，
-    
     方法名 ： function(){
           this.属性名; //调用属性  
     }
@@ -425,12 +440,10 @@ var 对象名 = {
     `var 对象名 = new Object();`
     2. 自定义(函数名使用大驼峰 （首字母全大写）)
 ```javaScript
-    function 函数名(参数){
+function 函数名(参数){
     this.属性名 = 属性值;
-
     this.方法名 = function(){
-
-       }
+   }
 }
 var 对象名 = new 函数名(参数);
 ```
@@ -452,6 +465,8 @@ var car = new Car();
 2. 执行this.xxx = xxx
 3. 隐式的返回this
 
+当构造函数返回一个引用值类型时，使用new创建会得到返回的对象。
+
 当一个对象的属性未定义就使用不会报错，会返回undefined。
 
 对象属性使用：
@@ -472,7 +487,7 @@ delete 对象名.属性名    /    delete  对象名. 方法名
 #### 原始值类型的变量没有属性和方法。
 
 ### 包装类：
-//创建一个数字型对象（可以有方法和属性）  
+创建一个数字型对象（可以有方法和属性）  
 var 对象名 = new Number(数字);
 
 例：
@@ -500,16 +515,16 @@ function对象的一个属性，他定义了构造函数制造出的对象的公
 利用原型特点和概念，可以提取共有属性。
 
 ```javaScript
-        Car.prototype.height = "1400";
-        Car.prototype.lang = "49000";
-        function Car(name) {
-            this.name = name;
-            this.run = function() {
-                console.log("I am Running!")
-            }
-        }
-        var car = new Car("BWM");
-        var car1 = new Car("AoDi");
+Car.prototype.height = "1400";
+Car.prototype.lang = "49000";
+function Car(name) {
+    this.name = name;
+    this.run = function() {
+        console.log("I am Running!")
+    }
+}
+var car = new Car("BWM");
+var car1 = new Car("AoDi");
 ```
 #### 不能通过对象修改原型。  
 函数名.prototype.属性 = 属性值;//修改属性
@@ -525,25 +540,25 @@ delete Car.prototype.height;
 
 charCodeAt()  方法可找出字符串的每一位。
 ```javaScript
-        Person.prototype.name = 'xyq';
-        function Person() {
-        }
-        var person = new Person();
-        Person.prototype.name = 'hsz';
-        console.log(person.name);
-        输出为 hsz
-        
-        Person.prototype.name = 'xyq';
-        function Person() {
-        }
-        var person = new Person();
-        // Person.prototype.name = 'hsz';
-        Person.prototype = {
-            name: 'hsz'
-        }
-        console.log(person.name);
-        输出为xyq
-        会重新创建一个对象，更改地址了
+Person.prototype.name = 'xyq';
+	function Person() {
+}
+var person = new Person();
+Person.prototype.name = 'hsz';
+console.log(person.name);
+输出为 hsz
+
+Person.prototype.name = 'xyq';
+function Person() {
+}
+var person = new Person();
+// Person.prototype.name = 'hsz';
+Person.prototype = {
+    name: 'hsz'
+}
+console.log(person.name);
+输出为xyq
+会重新创建一个对象，更改地址了
 ```
 
 #### 绝大多数对象最终都继承自Object.prototype
@@ -562,43 +577,42 @@ Math.ceil(number); 向上取整（整数部分加一）
 改变this的指向（可以借别人的方法来封装自己的功能）
 #### call需要把实参按照形参的个数传进去，apply只能传一个arguments(数组)
 ```javaScript
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+var person = new Person('XYQ', 21);
+var obj = {}
+Person.call(obj, 'xyq', 21);
 
-        function Person(name, age) {
-            this.name = name;
-            this.age = age;
-        }
-        var person = new Person('XYQ', 21);
-        var obj = {}
-        Person.call(obj, 'xyq', 21);
-        
-        obj会变成{name: "xyq", age: "21"}
-            
+obj会变成{name: "xyq", age: "21"}
 
-        function Person(name, age, sex) {
-            this.name = name;
-            this.age = age;
-            this.sex = sex;
-        }
-        function Student(name, age, sex, tel, grade) {
-            Person.call(this, name, age, sex);
-            this.tel = tel;
-            this.grade = grade;
-        }
-        
-        可以生成Student函数有（name, age, sex, tel, grade）属性
-        
-        function Person(name, age, sex) {
-            this.name = name;
-            this.age = age;
-            this.sex = sex;
-        }
-        function Student(name, age, sex, tel, grade) {
-            Person.apply(this, [name, age, sex]);
-            this.tel = tel;
-            this.grade = grade;
-        }
 
-        可以生成Student函数有（name, age, sex, tel, grade）属性
+function Person(name, age, sex) {
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+}
+function Student(name, age, sex, tel, grade) {
+    Person.call(this, name, age, sex);
+    this.tel = tel;
+    this.grade = grade;
+}
+
+可以生成Student函数有（name, age, sex, tel, grade）属性
+
+function Person(name, age, sex) {
+    this.name = name;
+    this.age = age;
+    this.sex = sex;
+}
+function Student(name, age, sex, tel, grade) {
+    Person.apply(this, [name, age, sex]);
+    this.tel = tel;
+    this.grade = grade;
+}
+
+可以生成Student函数有（name, age, sex, tel, grade）属性
 
 ```
 
