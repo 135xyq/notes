@@ -188,7 +188,7 @@ css⽂件，jpg,png等。src属性的资源都是可以被跨域请求的。href
  pan.baidu.com ——> zhidao.baidu.com
 
     1）JSONP（正常的情况，返回的数据都是JSON格式。JSONP是⼀种特殊的格式。）
-    2）后端设置Access-Control-Allow-Origin属性以⽀持跨域。（聊天机器⼈课讲，因为需要nodejs）
+    2）后端设置Access-Control-Allow-Origin属性以⽀持跨域。
 
 2. 后端不配合我们进⾏跨域。
 
