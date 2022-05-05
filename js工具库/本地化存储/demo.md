@@ -42,12 +42,12 @@ localStorage和sessionStorage都继承自对象Storage
 
 `localStorage.setItem('name', 'xyq');`
 ```javascript
-        var color = {
-            "c1": "red",
-            "c2": "green"
-        };
-        localStorage.setItem('color', JSON.stringify(color));
-        添加对象
+    var color = {
+        "c1": "red",
+        "c2": "green"
+    };
+    localStorage.setItem('color', JSON.stringify(color));
+    添加对象
 ```
 5. removeItem（）：删除一个本地存储数据
 6. clearItem（）：清空本地存储

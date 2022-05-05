@@ -3,32 +3,32 @@
 ## jquery代码书写位置的三种
 
 ```javascript
-        $(document).ready(function() {
-            var box = document.getElementById('box');
-            console.log(box);
-        });
-        
-        
-        $().ready(function() {
-            var box = document.getElementById('box');
-            console.log(box);
-        });
-        
-        
-        $(function() {
-            var box = document.getElementById('box');
-            console.log(box);
-        })
+$(document).ready(function() {
+    var box = document.getElementById('box');
+    console.log(box);
+});
+
+
+$().ready(function() {
+    var box = document.getElementById('box');
+    console.log(box);
+});
+
+
+$(function() {
+    var box = document.getElementById('box');
+    console.log(box);
+})
 ```
 dom元素加载完就会触发ready
 
 ### jquery的特点：
 1. 强大的选择器
 ```javascript
-    <script>
-        var $h1 = $('h1');
-        console.log($h1);
-    </script>
+<script>
+    var $h1 = $('h1');
+    console.log($h1);
+</script>
 ```
 2. 链式操作
 
