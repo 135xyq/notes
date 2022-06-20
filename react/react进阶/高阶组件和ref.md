@@ -209,4 +209,64 @@ export default class Ref extends Component {
 			</>
 		);
 	}
-  ```
+```
+
+
+### [ref转发](https://zh-hans.reactjs.org/docs/forwarding-refs.html)
+
+forwardRef：
+1. 参数：传递的只能是函数组件，不能是类组件，函数组件要有第二个参数来得到ref
+2. 返回值：返回一个新的组件
+
+高阶组件 WithTest
+```js
+import React, { Component } from "react";
+
+export default function WithTest(Comp) {
+	class WithTest extends Component {
+		render() {
+			const { forwardRef, ...rest } = this.props;
+			return <Comp ref={forwardRef} {...rest}></Comp>;
+		}
+	}
+
+	return React.forwardRef((props,ref)=>{
+        return <WithTest {...props} forwardRef={ref}></WithTest>
+    })
+}
+
+```
+
+组件CompA
+```js
+import React, { Component } from 'react'
+import WithTest from './WithTest'
+
+class CompA extends Component {
+  render() {
+    return (
+      <div>CompA
+        <h1>  {this.props.data}</h1>
+      </div>
+    )
+  }
+}
+export default  WithTest(CompA)
+```
+
+测试组件
+```js
+import React, { Component } from 'react'
+import CompA from './CompA'
+export default class Test extends Component {
+  compARef = React.createRef();
+  componentDidMount(){
+    console.log(this.compARef);//可以得到组件CompA的实例对象
+  }
+  render() {
+    return (
+      <CompA data="123456" ref={this.compARef}></CompA>
+    )
+  }
+}
+```
