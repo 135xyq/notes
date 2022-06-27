@@ -23,3 +23,30 @@ useEffect：该函数接收一个函数作为参数，接收的函数就是需�
     - 当该组件重新渲染后，只有依赖数据与上一次不一样时，才会执行副作用
     - 当传递依赖数据后，如果数据没有发生变化，副作用仅在第一次渲染后运行，清理函数仅在卸载组件后运行
 5. 副作用函数中，如果使用了函数上下文中的变量，则由于闭包的影响，会导致副作用函数中变量不会实时变化。
+
+```js
+import React, { useState, useEffect } from "react";
+
+export default function EffectHookTest() {
+	const [n, setN] = useState(0);
+    useEffect(()=>{
+        document.title = `计数器  ${n}`
+        return ()=>{
+            console.log('清理函数：在每次运行副作用函数之前，首次渲染组件不会运行，组件被销毁时一定会运行')
+        }
+    },[n]);//数组记录该副作用的依赖数据,当该组件重新渲染后，只有依赖数据与上一次不一样时，才会执行副作用
+	return (
+		<div>
+			<span>计数器：</span>
+			{n}
+			<button
+				onClick={() => {
+					setN(n + 1);
+				}}
+			>
+				+
+			</button>
+		</div>
+	);
+}
+```
