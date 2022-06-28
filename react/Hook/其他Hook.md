@@ -24,3 +24,35 @@ Flux：Facebook出品的一个数据流框架
 5. 如果要触发reducer，不可以直接调用，而是应该调用一个辅助函数dispatch
    1. 该函数仅接收一个参数：action
    2. 该函数会间接去调用reducer，以达到改变数据的目的
+
+## [Context Hook](https://react.docschina.org/docs/hooks-reference.html#usecontext)
+
+获取上下文数据
+
+```js
+const value = useContext(MyContext);
+```
+接收一个 context 对象（React.createContext 的返回值）并返回该 context 的当前值。当前的 context 值由上层组件中距离当前组件最近的 <MyContext.Provider> 的 value prop 决定。
+
+```js
+import React ,{useContext} from 'react'
+
+const ctx = React.createContext();
+
+function Test(){
+	const value =useContext(ctx);
+	return <p>
+		上下文数据为：{value}
+	</p>
+}
+export default function ContextHookTest() {
+	return (
+	  <div>
+		<ctx.Provider value="xyq">
+			<Test />
+		</ctx.Provider>
+	  </div>
+	)
+}
+
+```
