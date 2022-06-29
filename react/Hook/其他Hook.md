@@ -79,3 +79,54 @@ const memoizedCallback = useCallback(
   [a, b],
 );
 ```
+
+## [Memo Hook](https://react.docschina.org/docs/hooks-reference.html#usememo)
+
+用于保持一些比较稳定的数据，通常用于性能优化
+
+## [Ref Hook](https://react.docschina.org/docs/hooks-reference.html#useref)
+
+useRef:
+
+1. 一个参数：默认值
+2. 返回值：一个固定的对象，```{current:值}```， r变更 ```.current ```属性不会引发组件重新渲染。
+
+```js
+import React, { useRef} from "react";
+
+export default function RefHookTest() {
+    const inputRef = useRef();
+	return <div>
+        <input ref={inputRef} type="text" />
+        <button onClick={()=>{
+            console.log(inputRef.current.value)
+        }}>获取input数据</button>
+    </div>;
+}
+```
+
+
+```js
+// 将useRef当成一个固定对象使用
+import React, { useRef,useState,useEffect} from "react";
+
+export default function RefHookTest() {
+    const [n, setN] = useState(10);
+    const nRef = useRef(n);
+    useEffect(()=>{
+        let timer = setInterval(()=>{
+            setN(nRef.current-1)
+            nRef.current--;
+            if(nRef.current ===0){
+                clearInterval(timer)
+            }
+            return ()=>{
+                clearInterval(timer)
+            }
+        },1000)
+    },[])
+	return <div>
+        {n}
+    </div>;
+}
+```
