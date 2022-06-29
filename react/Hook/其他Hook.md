@@ -32,6 +32,7 @@ Flux：Facebook出品的一个数据流框架
 ```js
 const value = useContext(MyContext);
 ```
+
 接收一个 context 对象（React.createContext 的返回值）并返回该 context 的当前值。当前的 context 值由上层组件中距离当前组件最近的 <MyContext.Provider> 的 value prop 决定。
 
 ```js
@@ -55,4 +56,26 @@ export default function ContextHookTest() {
 	)
 }
 
+```
+
+
+## [Callback Hook](https://react.docschina.org/docs/hooks-reference.html#usecallback)
+
+```useCallback```
+
+用于得到一个固定引用值的函数，通常用来进行性能优化
+
+useCallback：
+
+该函数有两个参数：
+1. 函数，useCallback会固定该函数的引用，只要依赖项没有发生变化，则始终返回之前函数的地址
+2. 数组，记录依赖项
+
+```js
+const memoizedCallback = useCallback(
+  () => {
+    doSomething(a, b);
+  },
+  [a, b],
+);
 ```
