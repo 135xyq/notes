@@ -189,4 +189,7 @@ export default function Test() {
 
 应该尽量使用```useEffect```因为他不会导致渲染阻塞。
 
-##
+## [DebugValue Hook](https://react.docschina.org/docs/hooks-reference.html#usedebugvalue)
+
+```usedebugvalue```：
+用于将自定义Hook的关联数据显示到调试栏
