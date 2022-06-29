@@ -177,3 +177,16 @@ export default function Test() {
 	);
 }
 ```
+
+
+## [LayoutEffect Hook](https://react.docschina.org/docs/hooks-reference.html#uselayouteffect)
+
+```useLayoutEffect```
+在浏览器渲染完之前运行，可能导致渲染阻塞
+
+```useLayoutEffect``` ：完成了DOM改动，但还没呈现给用户，与类组件的```componentDidMount```和```componentDidUpdate```时间点一致
+```useEffect``` 会在浏览器渲染完成，用户看到新的渲染结果后
+
+应该尽量使用```useEffect```因为他不会导致渲染阻塞。
+
+##
