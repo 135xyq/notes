@@ -40,7 +40,7 @@ bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)-想怎么偏怎么偏
 **7.渐变**
 createLinearGradient(x1, y1, x2, y2)
 createRadialGradient(x1, y1, r1, x2, y2, r2)
-gradient.addColorStop(position, color)（0~1，color）
+gradient.addColorStop(position, color)（0\~1，color）
 
 **8.模式**
 createPattern(image, type)-创建并返回一个新的画布模式对象
